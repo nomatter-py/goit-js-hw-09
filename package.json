@@ -3,14 +3,14 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://https://github.com/nomatter-py/goit-js-hw-09",
+  "homepage": "https://github.com/nomatter-py/goit-js-hw-09",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://https://github.com/nomatter-py/goit-js-hw-09.git"
+    "url": "git+https://github.com/nomatter-py/goit-js-hw-09.git"
   },
   "keywords": [],
   "author": "Yurii Pavliuk",
