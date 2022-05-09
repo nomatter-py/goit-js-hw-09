@@ -12,9 +12,9 @@ let swithcerIntervalId = null;
 
 function disabled(el, value = true) {
   if (value) {
-    el.setAttribute('disabled', value);
+    el.disabled = value;
   } else {
-    el.removeAttribute('disabled');
+    el.disabled = true;
   }
 }
 
