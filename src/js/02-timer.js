@@ -12,7 +12,6 @@ const refs = {
 
 let dateTo = null;
 
-disabled(refs.startBtn);
 
 class Timer {
   constructor() {
@@ -22,7 +21,6 @@ class Timer {
   start() {
     this.timerId = setInterval(() => {
       const currentDelta = dateTo - Date.now();
-      console.log(currentDelta);
       if (currentDelta <= 0) {
         this.stop();
         return;
@@ -42,13 +40,12 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
     dateTo = selectedDates[0];
     if (dateTo < Date.now()) {
       alert('Please choose a date in the future');
-      disabled(refs.startBtn);
+      refs.startBtn.disabled = true;
     } else {
-      disabled(refs.startBtn, false);
+      refs.startBtn.disabled = false;
     }
   },
 };
@@ -83,22 +80,11 @@ function convertMs(ms) {
   // Remaining seconds
   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
-  console.log({ days, hours, minutes, seconds });
   return { days, hours, minutes, seconds };
-}
-
-function disabled(el, value = true) {
-  if (value) {
-    el.disabled = value;
-  } else {
-    el.disabled = true;
-  }
 }
 
 
 const timer = new Timer();
-refs.startBtn.addEventListener('click', () => {
-  timer.start();
-});
+refs.startBtn.addEventListener('click', timer.start);
 
 
